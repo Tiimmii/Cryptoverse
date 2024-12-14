@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 //3. create folder app in src and create store.js and paste code there
 //4. in main.jsx make sure to import store from app. also import provider and wrap the <App/> with Provider setting store to store
 import { useGetCryptosQuery } from '../services/cryptoApi'
+import Cryptocurrencies from './Cryptocurrencies'
+import News from './News'
 
 const HomePage = () => {
     const { data, isFetching } = useGetCryptosQuery(); 
@@ -27,6 +29,16 @@ const HomePage = () => {
             <Col span={12}><Statistic title='Total 24th Volume' value={millify(globalStats.total24hVolume)}/></Col>
             <Col span={12}><Statistic title='Total Markets' value={millify(globalStats.totalMarkets)}/></Col>
         </Row>
+        <div className='home-heading-container'>
+            <Typography.Title level={2} className='home-title'>Top 10 Cryptocurrencies in the world</Typography.Title>
+            <Typography.Title level={3} className='Show more'><Link to={'/cryptocurrencies'}>Show More</Link></Typography.Title>
+        </div>
+        <Cryptocurrencies simplified/>
+        <div className='home-heading-container'>
+            <Typography.Title level={2} className='home-title'>Latest Crypto News</Typography.Title>
+            <Typography.Title level={3} className='Show more'><Link to={'/news'}>Show More</Link></Typography.Title>
+        </div>
+        <News simplified/>
     </>
   )
 }
