@@ -1,16 +1,21 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { Switch, Route, Link } from 'react-router-dom';
+import { Layout, Typography, Space } from 'antd'; 
 function App() {
   // npm install antd @ant-design/icons react-redux @reduxjs/toolkit axios chart.js html-react-parser millify moment react-chartjs-2
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <h1>Cryptoverse</h1>
+      <div className='app'>
+        <div className="navbar">
+          <div className="main">
+
+          </div>
+          <div className="footer">
+
+          </div>
+        </div>
       </div>
     </>
   )
