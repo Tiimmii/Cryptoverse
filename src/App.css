@@ -300,8 +300,7 @@ padding: 0px 20px;
   justify-content: space-between !important;
 }
 .news-image-container img{
-  max-width: 400px;
-  max-height: 400px;
+  max-height: 190px;
 }
 .news-title{
 width: 70%;
