@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { Select, Typography, Row, Col, Avatar, Card } from 'antd'
 import moment from 'moment'
 import { useGetNewsQuery } from '../services/cryptoNewsApi'
+import { useGetCryptosQuery } from '../services/cryptoApi'
 const { Text, Title } = Typography
 const { Option } = Select
 
 const demoImageUrl = `https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News`
 
 const News = ({simplified}) => {
+    const { data: cryptos } = useGetCryptosQuery (100); 
     const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
     const { data: cryptoNews } =  useGetNewsQuery({ newsCategory: newsCategory, count: simplified? 6: 120})
-    console.log(cryptoNews)
+    console.log(cryptos)
     if(!cryptoNews?.data) return 'Loading....'
   return (
     <Row gutter={[24, 24]}>
@@ -21,11 +23,12 @@ const News = ({simplified}) => {
                     className='select-news'
                     placeholder= 'Select a Crypto'
                     optionFilterProp='children'
-                    onChange={(value)=>console.log(value)}
+                    onChange={(value)=>setNewsCategory(value)}
                     filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
 
                 >
-                <Option value='Cryptocurrency'></Option>
+                <Option value='Cryptocurrency'>Cryptocurrency</Option>
+                {cryptos?.data.coins.map((coin)=> <Option value={coin.name}>{coin.name}</Option>)}
                 </Select>
             </Col>
         )}

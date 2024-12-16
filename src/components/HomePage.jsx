@@ -12,7 +12,7 @@ import Cryptocurrencies from './Cryptocurrencies'
 import News from './News'
 
 const HomePage = () => {
-    const { data, isFetching } = useGetCryptosQuery(100); 
+    const { data, isFetching } = useGetCryptosQuery(12);  
     const globalStats = data?.data?.stats;
     console.log(data)
 
@@ -38,7 +38,7 @@ const HomePage = () => {
             <Typography.Title level={2} className='home-title'>Latest Crypto News</Typography.Title>
             <Typography.Title level={3} className='Show more'><Link to={'/news'}>Show More</Link></Typography.Title>
         </div>
-        <News simplified cryptos={data}/>
+        <News simplified />
     </>
   )
 }
