@@ -18,8 +18,11 @@ export const cryptoApi = createApi({
         getCryptoDetails: builder.query({
             query: (coinId) => createRequest(`/coin/${coinId}`),
         }),
+        getCryptoHistory: builder.query({
+            query: ({ coinId, timeperiod }) => createRequest(`coin/${coinId}/history?timeperiod=${timeperiod}`),
+        }),
     })
 })
 
 // redux tolkit creates hooks you can call instantly to get all the data for query. It comes with loading states, finalized states and everything needed for making api calls.
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoApi
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoApi

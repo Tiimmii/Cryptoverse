@@ -232,6 +232,7 @@ a:hover{
 
 .coin-desc{
   flex: 0.5;
+  flex-direction: column;
 }
 
 .coin-links{

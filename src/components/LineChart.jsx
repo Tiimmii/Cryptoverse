@@ -3,6 +3,19 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Col, Row, Typography } from 'antd';
 
+import {
+    Chart as ChartJS,
+    LineElement,
+    PointElement,
+    LinearScale,
+    CategoryScale,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+  
+  // Register the components
+ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
+
 const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
