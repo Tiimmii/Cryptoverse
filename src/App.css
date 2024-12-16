@@ -296,7 +296,12 @@ padding: 0px 20px;
 }
 .news-image-container{
   display: flex !important;
+  flex-direction: column;
   justify-content: space-between !important;
+}
+.news-image-container img{
+  max-width: 400px;
+  max-height: 400px;
 }
 .news-title{
 width: 70%;
